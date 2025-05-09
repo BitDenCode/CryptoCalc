@@ -1,0 +1,92 @@
+/* HeroSection.module.css */
+.hero {
+  background-size: cover;
+  background-position: center;
+  padding: 5px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero h2 {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #cccccc;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* добавлено для перестройки на маленьких экранах */
+}
+
+.description {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  min-width: 280px;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 280px;
+}
+
+.image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .imageWrapper {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+}
+
+.description span {
+  color: #d25d03;
+  font-weight: bold;
+}
+
+.description strong {
+  color: #d25d03;
+  font-weight: bold;
+}

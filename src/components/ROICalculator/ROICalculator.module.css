@@ -1,0 +1,82 @@
+/* ROICalculator.module.css */
+.roiCalculator {
+  background-color: #1A1A1A;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 0 10px rgb(0, 255, 153); /* Тень с зелёным оттенком */
+}
+
+.roiCalculator h2 {
+  color: #FFD700; /* Жёлтый */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.roiCalculator input,
+.roiCalculator select,
+.roiCalculator button {
+  background-color: #0D0D0D;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.roiCalculator select:focus {
+  background-color: #0d0d0d; /* Зелёный */
+  border-color: #0d0d0d;
+}
+
+.roiCalculator input:focus,
+.roiCalculator button:hover {
+  background-color: #00FF99; /* Зелёный */
+  border-color: #00FF99;
+  color: #000000;
+}
+
+.roiCalculator button {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.roiCalculator .result {
+  margin-top: 1rem;
+  background-color: #333333;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #00FF99;
+}
+
+.roiCalculator .chartContainer {
+  margin-top: 2rem;
+  background-color: #0D0D0D;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.3); /* Лёгкая зелёная тень */
+}
+
+.holdPeriodContainer {
+  margin: 1rem 0;
+}
+
+.holdPeriodInputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.holdPeriodInputs input {
+  width: 80px;
+  padding: 0.25rem;
+  background-color: #1a1a1a;
+  border: 1px solid #555;
+  color: white;
+}

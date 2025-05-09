@@ -1,0 +1,94 @@
+.header {
+  position: sticky;  
+  top: 0; 
+  z-index: 1000;
+  width: 100%;
+  background-color: #1A1A1A;
+  padding: 10px 60px;
+  border-bottom: 2px solid #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.headerTitle {
+  color: #FFD700;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.titleLink:hover {
+  text-decoration: none;
+  color: #FFD700;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.navLinks a {
+  color: #00FF99;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+}
+
+.navLinks a:hover {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .headerTitle {
+    font-size: 22px;
+  }
+
+  .navLinks {
+    margin-top: 10px;
+  }
+
+  .navLinks a {
+    padding: 8px 12px;
+  }
+}
