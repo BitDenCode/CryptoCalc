@@ -14,16 +14,30 @@ import {
 } from 'recharts';
 import styles from './ROICalculator.module.css';
 
+// Типы для криптовалют и точек ROI
+type Crypto = {
+  id: string;
+  name: string;
+  image: string;
+  symbol: string;
+  current_price: number;
+};
+
+type RoiPoint = {
+  price: string;
+  roi: number;
+  profit: number;
+};
+
 const ROICalculator = () => {
   const [investment, setInvestment] = useState('');
   const [buyPrice, setBuyPrice] = useState('');
   const [sellPrice, setSellPrice] = useState('');
   const [roi, setRoi] = useState<number | null>(null);
   const [profit, setProfit] = useState<number | null>(null);
-  const [cryptos, setCryptos] = useState<any[]>([]);
+  const [cryptos, setCryptos] = useState<Crypto[]>([]);
   const [selectedCrypto, setSelectedCrypto] = useState<string>('bitcoin');
-  const [cryptoPrice, setCryptoPrice] = useState<number | null>(null);
-  const [roiData, setRoiData] = useState<any[]>([]);
+  const [roiData, setRoiData] = useState<RoiPoint[]>([]);
   const [holdDays, setHoldDays] = useState('');
   const [holdMonths, setHoldMonths] = useState('');
   const [monthlyInvestment, setMonthlyInvestment] = useState('');
@@ -51,7 +65,6 @@ const ROICalculator = () => {
           vs_currencies: 'usd',
         },
       });
-      setCryptoPrice(response.data[selectedCrypto]?.usd || 0);
       setBuyPrice(response.data[selectedCrypto]?.usd.toString() || '');
     };
     fetchPrice();
@@ -61,7 +74,6 @@ const ROICalculator = () => {
     const invest = parseFloat(investment);
     const buy = parseFloat(buyPrice);
     const sell = parseFloat(sellPrice);
-    const monthly = parseFloat(monthlyInvestment);
 
     if (isNaN(invest) || isNaN(buy) || isNaN(sell) || buy === 0) {
       setRoi(null);
@@ -77,7 +89,7 @@ const ROICalculator = () => {
     setRoi(roiResult);
     setProfit(profitResult);
 
-    const simulatedData = [];
+    const simulatedData: RoiPoint[] = [];
     for (let p = buy * 0.5; p <= buy * 2.5; p += (buy * 0.1)) {
       const r = ((p - buy) / buy) * 100;
       const pr = (p - buy) * amount;
@@ -109,7 +121,7 @@ const ROICalculator = () => {
       <select value={selectedCrypto} onChange={(e) => setSelectedCrypto(e.target.value)}>
         {cryptos.map((crypto) => (
           <option key={crypto.id} value={crypto.id}>
-            {crypto.name} 
+            {crypto.name}
           </option>
         ))}
       </select>
@@ -186,11 +198,9 @@ const ROICalculator = () => {
         </div>
       )}
 
-      
       <p style={{ marginTop: '2rem', color: '#888888', fontSize: '0.9rem' }}>
         Калькулятор позволяет рассчитать потенциальную доходность инвестиций в криптовалюту на основе начальной цены, предполагаемой цены продажи и вложенной суммы. Можно указать ежемесячные вложения и срок удержания, чтобы смоделировать инвестиционный сценарий.
       </p>
-      
     </div>
   );
 };
