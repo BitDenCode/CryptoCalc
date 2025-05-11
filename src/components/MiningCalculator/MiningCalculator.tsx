@@ -1,9 +1,15 @@
 'use client';
-
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Papa from 'papaparse';
 import styles from './MiningCalculator.module.css';
+
+interface Crypto {
+  id: string;
+  name: string;
+  image: string;
+}
 
 const MiningCalculator = () => {
   const [hashrate, setHashrate] = useState('');
@@ -14,7 +20,7 @@ const MiningCalculator = () => {
   const [dailyCost, setDailyCost] = useState<number | null>(null);
   const [profitability, setProfitability] = useState<number | null>(null);
   const [selectedCrypto, setSelectedCrypto] = useState('bitcoin');
-  const [cryptos, setCryptos] = useState<any[]>([]);
+  const [cryptos, setCryptos] = useState<Crypto[]>([]);
   const [blockReward, setBlockReward] = useState('');
   const [networkDifficulty, setNetworkDifficulty] = useState('');
   const [manualPrice, setManualPrice] = useState('');
@@ -118,7 +124,6 @@ const MiningCalculator = () => {
           >
             {cryptos.map((crypto) => (
               <option key={crypto.id} value={crypto.id}>
-                <img src={crypto.image} alt={crypto.name} className="inline-block w-6 h-6 mr-2" />
                 {crypto.name}
               </option>
             ))}
