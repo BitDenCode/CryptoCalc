@@ -4,13 +4,7 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className="container mx-auto px-4 text-center">
-
-        <div className="mt-6 text-white">
-          <p>
-            Используйте наши калькуляторы для расчёта прибыли от майнинга, стейкинга и ROI на различных криптовалютах. Все расчёты основываются на актуальных данных с криптовалютных рынков.
-          </p>
-        </div>
+      <div className="container mx-auto px-4 text-center">      
       
         <div className="space-x-4">
           
